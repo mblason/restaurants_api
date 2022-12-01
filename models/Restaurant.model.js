@@ -3,32 +3,37 @@ const mongoose = require("mongoose");
 const RestaurantSchema = new mongoose.Schema(
   {
     name: {
-        type: String,
-        required: [true, "Name is required."],
+      type: String,
+      required: [true, "Name is required."],
     },
     neighborhood: {
-        type: String,
-        required: [true, "Neighborhood is required."],
+      type: String,
+      required: [true, "Neighborhood is required."],
     },
     address: {
-        type: String,
-        required: [true, "Address is required."],
+      type: String,
+      required: [true, "Address is required."],
     },
     images: {
-        type: [String],
-        required: [true, "Images are required."],
+      type: Array,
+      required: [true, "At least upload one image."],
     },
     cuisine_type: {
-        type: String,
-        required: [true, "Cuisine type is required."],
+      type: String,
+      required: [true, "Cuisine type is required."],
     },
     operating_hours: {
-        type: String,
-        required: [true, "Cuisine type is required."],
+      Monday: { type: String },
+      Tuesday: { type: String },
+      Wednesday: { type: String },
+      Thursday: { type: String },
+      Friday: { type: String },
+      Saturday: { type: String },
+      Sunday: { type: String }
     },
     hasReviews: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
     }
   },
   {
