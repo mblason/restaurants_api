@@ -18,6 +18,7 @@ router.get("/users/me", authMiddleware.isAuthenticated, authController.getCurren
 
 // RESTAURANTS CRUD
 router.get("/restaurant/list", authMiddleware.isAuthenticated, restaurantController.getAllRestaurants);
+router.get("/restaurant/:id", authMiddleware.isAuthenticated, restaurantController.getOneRestaurant);
 
 
 
