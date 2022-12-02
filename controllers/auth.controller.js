@@ -99,3 +99,15 @@ module.exports.loginGoogle = (req, res, next) => {
     }
   })(req, res, next);
 };
+
+module.exports.getCurrentUser = (req, res, next) => {
+  User.findById(req.currentUser)
+    .then((user) => {
+      if (!user) {
+        next(createError(404, "User not found"));
+      } else {
+        res.json(user);
+      }
+    })
+    .catch(next);
+};

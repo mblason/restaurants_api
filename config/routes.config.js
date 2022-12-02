@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const passport = require("passport");
 const fileUploader = require("./cloudinary.config");
-const authController = require("../controllers/auth.controller");
 const authMiddleware = require("../middlewares/auth.middleware");
+const authController = require("../controllers/auth.controller");
+const restaurantController = require('../controllers/restaurant.controller');
 
 const SCOPES = ["profile", "email"];
 
@@ -13,10 +14,10 @@ router.get("/activate/:token", authController.activateAccount);
 router.post("/login", authController.login);
 router.get("/login/google", passport.authenticate("google-auth", { scope: SCOPES }));
 router.get("/auth/google/callback", authController.loginGoogle);
-
-// HOME
+router.get("/users/me", authMiddleware.isAuthenticated, authController.getCurrentUser);
 
 // RESTAURANTS CRUD
+router.get("/restaurant/list", authMiddleware.isAuthenticated, restaurantController.getAllRestaurants);
 
 
 
