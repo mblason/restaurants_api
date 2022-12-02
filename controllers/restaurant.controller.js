@@ -11,7 +11,6 @@ module.exports.getAllRestaurants = (req, res, next) => {
 
 module.exports.getOneRestaurant = (req, res, next) => {
     const { id } = req.params;
-    console.log(id)
 
     Restaurant.findById(id)
         .then((restaurant) => {

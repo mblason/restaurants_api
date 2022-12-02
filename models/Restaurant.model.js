@@ -43,8 +43,6 @@ const RestaurantSchema = new mongoose.Schema(
       transform: (doc, ret) => {
         delete ret.__v;
         delete ret._id;
-        delete ret.password;
-
         return ret;
       },
     },
@@ -53,8 +51,6 @@ const RestaurantSchema = new mongoose.Schema(
       transform: (doc, ret) => {
         delete ret.__v;
         delete ret._id;
-        delete ret.password;
-
         return ret;
       },
     },

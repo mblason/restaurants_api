@@ -18,8 +18,6 @@ const FavouriteSchema = new mongoose.Schema(
       transform: (doc, ret) => {
         delete ret.__v;
         delete ret._id;
-        delete ret.password;
-
         return ret;
       },
     },
@@ -28,8 +26,6 @@ const FavouriteSchema = new mongoose.Schema(
       transform: (doc, ret) => {
         delete ret.__v;
         delete ret._id;
-        delete ret.password;
-
         return ret;
       },
     },

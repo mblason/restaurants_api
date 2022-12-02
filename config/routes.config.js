@@ -4,6 +4,7 @@ const fileUploader = require("./cloudinary.config");
 const authMiddleware = require("../middlewares/auth.middleware");
 const authController = require("../controllers/auth.controller");
 const restaurantController = require('../controllers/restaurant.controller');
+const userController = require('../controllers/user.controller');
 
 const SCOPES = ["profile", "email"];
 
@@ -20,7 +21,11 @@ router.get("/users/me", authMiddleware.isAuthenticated, authController.getCurren
 router.get("/restaurant/list", authMiddleware.isAuthenticated, restaurantController.getAllRestaurants);
 router.get("/restaurant/:id", authMiddleware.isAuthenticated, restaurantController.getOneRestaurant);
 
-
+// USERS FAVS
+router.get("/favourite/:user", authMiddleware.isAuthenticated, userController.getAllFavs);
+router.get("/favourite/:restaurant/:user", authMiddleware.isAuthenticated, userController.getOneFav);
+router.post("/favourite/create", authMiddleware.isAuthenticated, userController.createFav);
+router.delete("/favourite/delete/:restaurant/:user", authMiddleware.isAuthenticated, userController.deleteFav);
 
 
 
