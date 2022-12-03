@@ -20,14 +20,15 @@ router.get("/users/me", authMiddleware.isAuthenticated, authController.getCurren
 // RESTAURANTS CRUD
 router.get("/restaurant/list", authMiddleware.isAuthenticated, restaurantController.getAllRestaurants);
 router.get("/restaurant/:id", authMiddleware.isAuthenticated, restaurantController.getOneRestaurant);
+router.get("/restaurant/list/:user", authMiddleware.isAuthenticated, restaurantController.getUserRestaurants);
+router.post("/restaurant/create", authMiddleware.isAuthenticated, fileUploader.array("images", 10), restaurantController.createRestaurant);
+router.post("/restaurant/edit", authMiddleware.isAuthenticated, fileUploader.array("images", 10), restaurantController.editRestaurant);
+router.delete("/restaurant/delete/:id", authMiddleware.isAuthenticated, fileUploader.array("images", 10), restaurantController.deleteRestaurant);
 
 // USERS FAVS
 router.get("/favourite/:user", authMiddleware.isAuthenticated, userController.getAllFavs);
 router.get("/favourite/:restaurant/:user", authMiddleware.isAuthenticated, userController.getOneFav);
 router.post("/favourite/create", authMiddleware.isAuthenticated, userController.createFav);
 router.delete("/favourite/delete/:restaurant/:user", authMiddleware.isAuthenticated, userController.deleteFav);
-
-
-
 
 module.exports = router;

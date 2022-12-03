@@ -62,6 +62,13 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
+UserSchema.virtual("restaurant", {
+  ref: "Restaurant",
+  localField: "_id",
+  foreignField: "owner",
+  justOne: true,
+});
+
 UserSchema.virtual("favourite", {
   ref: "Favourite",
   localField: "_id",

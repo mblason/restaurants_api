@@ -23,18 +23,22 @@ const RestaurantSchema = new mongoose.Schema(
       required: [true, "Cuisine type is required."],
     },
     operating_hours: {
-      Monday: { type: String },
-      Tuesday: { type: String },
-      Wednesday: { type: String },
-      Thursday: { type: String },
-      Friday: { type: String },
-      Saturday: { type: String },
-      Sunday: { type: String }
+      Monday: { type: String, required: [true, "This field is required."] },
+      Tuesday: { type: String, required: [true, "This field is required."] },
+      Wednesday: { type: String, required: [true, "This field is required."] },
+      Thursday: { type: String, required: [true, "This field is required."] },
+      Friday: { type: String, required: [true, "This field is required."] },
+      Saturday: { type: String, required: [true, "This field is required."] },
+      Sunday: { type: String, required: [true, "This field is required."] },
+    },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
     },
     hasReviews: {
       type: Boolean,
       default: false,
-    }
+    },
   },
   {
     timestamps: true,
