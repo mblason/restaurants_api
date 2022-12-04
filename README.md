@@ -1,12 +1,12 @@
 # Restaurants REST API
 
-A RESTful API build in in NodeJS.
+A RESTful API built in [NodeJS.](https://nodejs.org/en/) for fetch restaurants data.
 
 ## Installation & Run
 
 ### Download this project
 ```bash
-go get github.com/mblason/restaurants_api
+Go get [/mblason/restaurants_api](https://github.com/mblason/restaurants_api)
 ```
 
 ### Set the database
@@ -22,7 +22,7 @@ npm run seeds
 ```
 
 ### Run
-And finally to run de REST API, execute the following command: 
+And finally, to run de REST API execute the following command: 
 ```bash
 npm start
 ```
