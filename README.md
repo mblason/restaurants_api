@@ -5,7 +5,7 @@ A RESTful API built in [NodeJS.](https://nodejs.org/en/) for fetch restaurants d
 ## Installation & Run
 
 ### Download this project
-Go get [/mblason/restaurants_api](https://github.com/mblason/restaurants_api)
+Fork and clone this repository. [Instructions here.](https://docs.github.com/es/get-started/quickstart/fork-a-repo)
 
 
 ### Set the database
