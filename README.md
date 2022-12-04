@@ -7,6 +7,11 @@ A RESTful API built in [NodeJS.](https://nodejs.org/en/) for fetch restaurants d
 ### Download this project
 Fork and clone this repository. [Instructions here.](https://docs.github.com/es/get-started/quickstart/fork-a-repo)
 
+### Install dependencies
+Install all the dependencies by executing the following command:
+```bash
+npm install
+```
 
 ### Set the database
 Before running API server, you should set the database config with yours or set the your database config with my values on [db.config.js](https://github.com/mblason/restaurants_api/blob/main/config/db.config.js)
@@ -26,7 +31,7 @@ And finally, to run de REST API execute the following command:
 npm start
 ```
 
-## Main Structure
+## Structure
 ```  
 |
 ├── config               // Integrations configuration and routes map
