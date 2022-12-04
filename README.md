@@ -5,9 +5,8 @@ A RESTful API built in [NodeJS.](https://nodejs.org/en/) for fetch restaurants d
 ## Installation & Run
 
 ### Download this project
-```bash
 Go get [/mblason/restaurants_api](https://github.com/mblason/restaurants_api)
-```
+
 
 ### Set the database
 Before running API server, you should set the database config with yours or set the your database config with my values on [db.config.js](https://github.com/mblason/restaurants_api/blob/main/config/db.config.js)
@@ -16,7 +15,7 @@ const URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/tailorHubChall
 ```
 
 ### Add data to the database
-Once the database is connected, you can seed the database with restaurants executing the following command: 
+Once the database is connected, you can seed the database with restaurants by executing the following command: 
 ```bash
 npm run seeds
 ```
@@ -34,9 +33,9 @@ npm start
 ├── controllers          // Handle endpoints request
 ├── data                 // Data to seed
 ├── middlewares          // Authentication middlewares
-├── models               // Models for our application
+├── models               // Data models
 ├── seeds                // Configuration to run seeds
-├── templates            // Emails templates                  
+├── templates            // Email templates                  
 └── app.js               // App configuration
 ```
 
@@ -61,9 +60,9 @@ npm start
 * `POST` & `/restaurant/edit`: Edit a specific restaurant
 * `DELETE` & `/restaurant/edit`: Delete a specific restaurant
 
-### Favourites user restaurants
+### User's favourites restaurants
 
 * `GET` & `/favourite/:user`: Get all favourites restaurants of a specific user
 * `GET` & `/favourite/:restaurant/:user`: Get one favourite restaurant of a specific user
 * `POST` & `/favourite/create`: Add a new favourite restaurant
-* `DELETE` & `/favourite/delete/:restaurant/:user`: Delete a specific restaurant faved
+* `DELETE` & `/favourite/delete/:restaurant/:user`: Delete a restaurant previously saved

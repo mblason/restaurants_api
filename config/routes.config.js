@@ -25,7 +25,7 @@ router.post("/restaurant/create", authMiddleware.isAuthenticated, fileUploader.a
 router.post("/restaurant/edit", authMiddleware.isAuthenticated, fileUploader.array("images", 10), restaurantController.editRestaurant);
 router.delete("/restaurant/delete/:id", authMiddleware.isAuthenticated, fileUploader.array("images", 10), restaurantController.deleteRestaurant);
 
-// FAVOURITES USERS RESTAURANTS
+// USER'S FAVOURITES RESTAURANTS
 router.get("/favourite/:user", authMiddleware.isAuthenticated, userController.getAllFavs);
 router.get("/favourite/:restaurant/:user", authMiddleware.isAuthenticated, userController.getOneFav);
 router.post("/favourite/create", authMiddleware.isAuthenticated, userController.createFav);
