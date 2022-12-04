@@ -31,43 +31,43 @@ module.exports.getUserRestaurants = (req, res, next) => {
 };
 
 module.exports.createRestaurant = (req, res, next) => {
-    const { 
-      Monday, 
-      Tuesday, 
-      Wednesday, 
-      Thursday, 
-      Friday, 
-      Saturday, 
-      Sunday, 
-      address, 
-      cuisine_type, 
-      name, 
-      neighborhood, 
-      owner } = req.body;
+  const { 
+    Monday, 
+    Tuesday, 
+    Wednesday, 
+    Thursday, 
+    Friday, 
+    Saturday, 
+    Sunday, 
+    address, 
+    cuisine_type, 
+    name, 
+    neighborhood, 
+    owner } = req.body;
 
-    const newRestaurant = {
-      name,
-      neighborhood,
-      address,
-      cuisine_type,
-      operating_hours: {
-        Monday,
-        Tuesday,
-        Wednesday,
-        Thursday,
-        Friday,
-        Saturday,
-        Sunday,
-      },
-      owner: mongoose.Types.ObjectId(owner),
-    };
+  const newRestaurant = {
+    name,
+    neighborhood,
+    address,
+    cuisine_type,
+    operating_hours: {
+      Monday,
+      Tuesday,
+      Wednesday,
+      Thursday,
+      Friday,
+      Saturday,
+      Sunday
+    },
+    owner: mongoose.Types.ObjectId(owner),
+  };
 
-    if (req.files) {
-      const paths = req.files.map((file) => {
-        return file.path;
-      });
-      newRestaurant.images = paths;
-    }
+  if (req.files) {
+    const paths = req.files.map((file) => {
+      return file.path;
+    });
+    newRestaurant.images = paths;
+  }
 
   Restaurant.create(newRestaurant)
     .then((restaurantCreated) => {
@@ -90,7 +90,7 @@ module.exports.editRestaurant = (req, res, next) => {
     cuisine_type,
     name,
     neighborhood,
-    owner,
+    owner
   } = req.body;
 
   const editRestaurant = {
@@ -98,22 +98,42 @@ module.exports.editRestaurant = (req, res, next) => {
     neighborhood,
     address,
     cuisine_type,
-    operating_hours: {
-      Monday,
-      Tuesday,
-      Wednesday,
-      Thursday,
-      Friday,
-      Saturday,
-      Sunday,
-    },
-    owner: mongoose.Types.ObjectId(owner),
+    "owner": mongoose.Types.ObjectId(owner),
   };
+
+  if (Monday) {
+    editRestaurant["operating_hours.Monday"] = Monday;
+  }
+
+  if (Tuesday) {
+    editRestaurant["operating_hours.Tuesday"] = Tuesday;
+  }
+
+  if (Wednesday) {
+    editRestaurant["operating_hours.Wednesday"] = Wednesday;
+  }
+
+  if (Thursday) {
+    editRestaurant["operating_hours.Thursday"] = Thursday;
+  }
+
+  if (Friday) {
+    editRestaurant["operating_hours.Friday"] = Friday;
+  }
+
+  if (Saturday) {
+    editRestaurant["operating_hours.Saturday"] = Saturday;
+  }
+
+  if (Sunday) {
+    editRestaurant["operating_hours.Sunday"] = Sunday;
+  }
 
   if (req.files) {
     const paths = req.files.map((file) => {
       return file.path;
     });
+
     editRestaurant.images = paths;
   }
 
