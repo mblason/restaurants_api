@@ -12,7 +12,13 @@ const passport = require("passport");
 
 const app = express();
 
-app.use(cors());
+const options = {
+   origin:'*', 
+   credentials: true,
+   optionSuccessStatus: 200,
+}
+
+app.use(cors(options));
 app.use(logger("dev"));
 app.use(passport.initialize());
 app.use(express.json());
