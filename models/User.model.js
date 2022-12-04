@@ -76,13 +76,6 @@ UserSchema.virtual("favourite", {
   justOne: true,
 });
 
-UserSchema.virtual("review", {
-  ref: "Review",
-  localField: "_id",
-  foreignField: "userWhoReviewed",
-  justOne: true,
-});
-
 UserSchema.pre("save", function (next) {
   if (this.isModified("password")) {
     bcrypt

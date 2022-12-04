@@ -35,8 +35,8 @@ const RestaurantSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
-    hasReviews: {
-      type: Boolean,
+    reviews: {
+      type: Array,
       default: false,
     },
   },
@@ -63,13 +63,6 @@ const RestaurantSchema = new mongoose.Schema(
 
 RestaurantSchema.virtual("favourite", {
   ref: "Favourite",
-  localField: "_id",
-  foreignField: "restaurant",
-  justOne: true,
-});
-
-RestaurantSchema.virtual("review", {
-  ref: "Review",
   localField: "_id",
   foreignField: "restaurant",
   justOne: true,

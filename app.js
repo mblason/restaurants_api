@@ -12,18 +12,7 @@ const passport = require("passport");
 
 const app = express();
 
-/* const options = {
-   origin:'*', 
-   credentials: true,
-   optionSuccessStatus: 200,
-}
-
-app.use(cors(options)); */
-
-app.all('*', (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", process.env.CLIENT_URL);
-    next();
-});
+app.use(cors());
 
 app.use(logger("dev"));
 app.use(passport.initialize());
