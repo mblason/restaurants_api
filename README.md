@@ -14,7 +14,7 @@ npm install
 ```
 
 ### Set the database
-Before running API server, you should set the database config with yours or set the your database config with my values on [db.config.js](https://github.com/mblason/restaurants_api/blob/main/config/db.config.js)
+Before running API server, you should set the database config with yours or set the database config with my values on [db.config.js](https://github.com/mblason/restaurants_api/blob/main/config/db.config.js)
 ```bash
 const URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/tailorHubChallenge";
 ```
@@ -63,7 +63,7 @@ npm start
 * `GET` & `/restaurant/list/:user`: Get restaurants posted by a specific user
 * `POST` & `/restaurant/create`: Create a restaurant
 * `POST` & `/restaurant/edit`: Edit a specific restaurant
-* `DELETE` & `/restaurant/edit`: Delete a specific restaurant
+* `DELETE` & `/restaurant/delete/:id`: Delete a specific restaurant
 
 ### User's favourites restaurants
 
